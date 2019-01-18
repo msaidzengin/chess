@@ -9,14 +9,14 @@ public class At extends Tas {
 	
 	public boolean checkMove (String loc) {
 			
-		String[] arr = getMoves(); //arrayin icine nesnenin gidebilecegi tum locationlari attim.
+		String[] arr = getMoves();
 		int count = 0;
 		
-		for(int i=0; i<arr.length; i++) //arrayde loc parametresini aradik.
+		for(int i=0; i<arr.length; i++)
 			if(loc.equals(arr[i]))
 				count++;  
 		
-		return count == 1; //varsa true..
+		return count == 1;
 				
 	}
 	
@@ -27,7 +27,7 @@ public class At extends Tas {
 		int aa = Integer.parseInt(s.substring(1,2));
 		String eski = "" + a + aa;
 		
-		String y1 = "" + (char)(a-2) + (aa+1); //at'in tum 8 hamlesini bulduk.
+		String y1 = "" + (char)(a-2) + (aa+1);
 		String y2 = "" + (char)(a-2) + (aa-1);
 		String y3 = "" + (char)(a+2) + (aa+1);
 		String y4 = "" + (char)(a+2) + (aa-1);
@@ -35,9 +35,7 @@ public class At extends Tas {
 		String y6 = "" + (char)(a+1) + (aa+2);
 		String y7 = "" + (char)(a-1) + (aa-2);
 		String y8 = "" + (char)(a+1) + (aa-2);
-		
-		//eger tahtanin disina tasmis ise arrayin icine atmadim.
-		
+				
 		int count = 0;
 		int kont = Integer.parseInt(y1.substring(1,y1.length()));		
 		if( (y1.charAt(0) >= 'a' && y1.charAt(0) <= 'h') && (kont>=0 && kont <=8) ){

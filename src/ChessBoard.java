@@ -120,7 +120,6 @@ public class ChessBoard {
                 chessBoardSquares[jj][ii] = b;
             }
         }
-        //taÅŸlarÄ± teker teker yerlestirmek icin
         for (int ii=0;ii<8;ii++){
         	for (int jj=0;jj<8;jj++){
         		if(jj==0||jj==1||jj==6||jj==7){

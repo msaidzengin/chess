@@ -25,12 +25,7 @@ public class Fil extends Tas {
 		char a = s.charAt(0);
 		int aa = Integer.parseInt(s.substring(1,2));
 		String eski = "" + a + aa;
-		
-		//filin gidebilecegi 4 hamleyi 4 for ile tanimladim.
-		//sag ust
-		//sag alt
-		//sol ust
-		//sol alt
+	
 		
 		int count = 0;
 		int art = 1;

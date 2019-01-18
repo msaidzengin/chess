@@ -26,9 +26,6 @@ public class Kale extends Tas {
 		int aa = Integer.parseInt(s.substring(1,2));
 		String eski = "" + a + aa;
 		
-		//kalenin hamlelerini bulduk..
-		//sag-sol-ust-alt
-		
 		int count = 0;
 		for(int i=aa+1; i<9; i++){
 			String yer = "" + (char)(a) + (i);

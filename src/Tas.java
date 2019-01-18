@@ -4,7 +4,7 @@ public class Tas {
 	private String location;
 	
 	public Tas() {
-		color='y';  //color yok.
+		color='y';
 		location = null;
 	}
 	public void setColor (char c) {
