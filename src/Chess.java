@@ -70,7 +70,6 @@ public class Chess {
 		
 					int y1 =Math.abs(Integer.parseInt(hb.substring(4,5))-8);  //yeni koordinat
 					int y2 = hb.charAt(3)-97;
-					String eski = hb.substring(0,2);
 					String yeni = hb.substring(3,5);			
 					
 					if ( ( board[e1][e2].checkMove(yeni)  ) &&    //hareket kontrol
@@ -122,13 +121,13 @@ public class Chess {
 							else if ( degis.equals(" fil") ) {
 								board[y1][y2] = new Tas();
 								board[y1][y2] = new Fil('b',yeni);
-								a.removeIcon(y1,y2,"fil",'b');
+								a.removeIcon(y1,y2,"piyon",'b');
 								a.putIcon(y1,y2,"fil",'b');
 							}
 							else if ( degis.equals(" vezir") ) {
 								board[y1][y2] = new Tas();
 								board[y1][y2] = new Vezir('b',yeni);
-								a.removeIcon(y1,y2,"vezir",'b');
+								a.removeIcon(y1,y2,"piyon",'b');
 								a.putIcon(y1,y2,"vezir",'b');
 							}
 							else {
@@ -165,7 +164,6 @@ public class Chess {
 		
 						int y1 =Math.abs(Integer.parseInt(hs.substring(4,5))-8);
 						int y2 = hs.charAt(3)-97;
-						String eski = hs.substring(0,2);
 						String yeni = hs.substring(3,5);			
 					
 						if ( ( board[e1][e2].checkMove(yeni)   ) && 
@@ -217,13 +215,13 @@ public class Chess {
 								else if ( degis.equals(" fil") ) {
 									board[y1][y2] = new Tas();
 									board[y1][y2] = new Fil('s',yeni);
-									a.removeIcon(y1,y2,"fil",'s');
+									a.removeIcon(y1,y2,"piyon",'s');
 									a.putIcon(y1,y2,"fil",'s');
 								}
 								else if ( degis.equals(" vezir") ) {
 									board[y1][y2] = new Tas();
 									board[y1][y2] = new Vezir('s',yeni);
-									a.removeIcon(y1,y2,"vezir",'s');
+									a.removeIcon(y1,y2,"piyon",'s');
 									a.putIcon(y1,y2,"vezir",'s');
 								}
 								else {
@@ -445,7 +443,7 @@ public class Chess {
 		int count = 0;
 		for(int i=0; i<board.length; i++){
 			for(int j=0; j<board[i].length; j++){
-				if ( board[i][j].getClass().getSimpleName() == "Sah" )
+				if ( board[i][j].getClass().getSimpleName().equals("Sah") )
 					count++;
 			}
 		}
@@ -457,7 +455,7 @@ public class Chess {
 		int y=0;
 		for(int i=0; i<board.length; i++){
 			for(int j=0; j<board[i].length; j++){
-				if ( board[i][j].getClass().getSimpleName() == "Sah" ){
+				if ( board[i][j].getClass().getSimpleName().equals("Sah") ){
 					x = i;
 					y = j;
 				}

@@ -25,8 +25,6 @@ public class At extends Tas {
 		String s = this.getLocation();
 		char a = s.charAt(0);
 		int aa = Integer.parseInt(s.substring(1,2));
-		String eski = "" + a + aa;
-		
 		String y1 = "" + (char)(a-2) + (aa+1);
 		String y2 = "" + (char)(a-2) + (aa-1);
 		String y3 = "" + (char)(a+2) + (aa+1);

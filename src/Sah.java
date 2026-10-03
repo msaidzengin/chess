@@ -26,8 +26,6 @@ public class Sah extends Tas {
 		char a = s.charAt(0);
 		int aa = Integer.parseInt(s.substring(1,2));
 		
-		String eski = "" + a + aa;
-		
 		String yer1 = "" + (char)(a-1) + (aa+1);
 		String yer2 = "" + (char)(a) + (aa+1);
 		String yer3 = "" + (char)(a+1) + (aa+1);

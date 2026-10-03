@@ -12,11 +12,11 @@ public class Piyon extends Tas {
 		String[] arr = getMoves();
 		
 		int count = 0;			
-		for(int i=0; i<arr.length; i++)
+		for(int i=0; i<arr.length; i++) {
 			if( loc.equals(arr[i]))
 				count++;
-			
-			return count==1;
+		}
+		return count==1;
 		
 	}
 	
@@ -25,7 +25,7 @@ public class Piyon extends Tas {
 		String s = this.getLocation();
 		String[] dizi;
 		if (this.getColor() == 'b'){
-			if(s=="a2"||s=="b2"||s=="c2"||s=="d2"||s=="e2"||s=="f2"||s=="g2"||s=="h2"){
+			if("a2".equals(s)||"b2".equals(s)||"c2".equals(s)||"d2".equals(s)||"e2".equals(s)||"f2".equals(s)||"g2".equals(s)||"h2".equals(s)){
 				
 				dizi = new String[4];
 				
@@ -60,7 +60,7 @@ public class Piyon extends Tas {
 			}
 		}
 		else{
-			if(s=="a7"||s=="b7"||s=="c7"||s=="d7"||s=="e7"||s=="f7"||s=="g7"||s=="h7"){
+			if("a7".equals(s)||"b7".equals(s)||"c7".equals(s)||"d7".equals(s)||"e7".equals(s)||"f7".equals(s)||"g7".equals(s)||"h7".equals(s)){
 				dizi = new String[4];
 				
 				char a = s.charAt(0);

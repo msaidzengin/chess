@@ -2,14 +2,12 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import javax.swing.*;
 import javax.swing.border.*;
-import java.util.*;
 
 public class ChessBoard {
 
     private final JPanel gui = new JPanel(new BorderLayout(3, 3));
     private JButton[][] chessBoardSquares = new JButton[8][8];
     private JPanel chessBoard;
-    private String[][] strChessBoard = new String[][] { {"RB", "NB", "BB", "QB", "KB", "BB", "NB", "RB" }, {"PB", "PB", "PB", "PB", "PB", "PB", "PB", "PB"}, {"  ", "  ", "  ", "  ", "  ", "  ", "  ", "  "}, {"  ", "  ", "  ", "  ", "  ", "  ", "  ", "  "}, {"  ", "  ", "  ", "  ", "  ", "  ", "  ", "  "}, {"  ", "  ", "  ", "  ", "  ", "  ", "  ", "  "}, {"PW", "PW", "PW", "PW", "PW", "PW", "PW", "PW"}, {"RW", "NW", "BW", "QW", "KW", "BW", "NW", "RW"} };
 
     private ImageIcon rookBlack = new ImageIcon(System.getProperty("user.dir") + "/images/BlackRook.png");
 
@@ -35,30 +33,25 @@ public class ChessBoard {
 
     private ImageIcon pawnWhite = new ImageIcon(System.getProperty("user.dir") + "/images/WhitePawn.png");
 
-    private boolean boolMoveSelection = false, bWhite = true, bMyTurn = true;
-
-    private Point pntMoveFrom, pntMoveTo;
-
-    private Container c;
     private  JLabel message = new JLabel(
             "Chess Champ is ready to play!");
     private static  String COLS = "ABCDEFGH";
     final JFrame f = new JFrame("ChessChamp");
-    SwingWorker worker;
+    SwingWorker<Void, Void> worker;
     public  JComponent getGui() {
         return gui;
     }
     ChessBoard() {
         initializeGui();
         
-         worker = new SwingWorker() {
+         worker = new SwingWorker<Void, Void>() {
             
             
 
             
 
 			@Override
-			protected Object doInBackground() throws Exception {
+			protected Void doInBackground() throws Exception {
 				// TODO Auto-generated method stub
 				f.add(gui);
                 f.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -197,13 +190,14 @@ public class ChessBoard {
                     case 0:
                         chessBoard.add(new JLabel("" + (8-ii),
                                 SwingConstants.CENTER));
+                        // fall through
                     default:
                         chessBoard.add(chessBoardSquares[ii][jj]);
                 }
             }
         }
     }
-    public  void putIcon(int x,int y,String s,char c) {// Ã¶devdeki putIcon metodu
+    public  void putIcon(int x,int y,String s,char c) { // ödevdeki putIcon metodu
     	f.setVisible(false);
         f.dispose();
         worker.cancel(true);
@@ -243,14 +237,14 @@ public class ChessBoard {
     	else if(s.equals("sah")&&c=='b'){
     		chessBoardSquares[x][y].add(new JLabel(this.kingWhite));
     	}
-    	 worker = new SwingWorker() {
+    	 worker = new SwingWorker<Void, Void>() {
             
             
 
             
 
 			@Override
-			protected Object doInBackground() throws Exception {
+			protected Void doInBackground() throws Exception {
 				// TODO Auto-generated method stub
 				f.add(gui);
                 f.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -270,33 +264,19 @@ public class ChessBoard {
        // SwingUtilities.invokeLater(r);
         worker.execute();
     }
-    public  void removeIcon(int x,int y,String s,char c) {//Ã¶devdeki removeIcon metodu
+    public  void removeIcon(int x,int y,String s,char c) { // ödevdeki removeIcon metodu
     	f.setVisible(false);
         f.dispose();
         worker.cancel(true);
-    	Insets buttonMargin = new Insets(0,0,0,0);
-    	JButton b = new JButton();
-        b.setMargin(buttonMargin);
-        ImageIcon icon = new ImageIcon(
-                new BufferedImage(90, 90, BufferedImage.TYPE_INT_ARGB));
-        b.setIcon(icon);
-        if ((x % 2 == 1 && y % 2 == 1)
-                //) {
-                || (x % 2 == 0 && y % 2 == 0)) {
-            b.setBackground(Color.WHITE);
-        } else {
-            b.setBackground(Color.GRAY);
-        }
         chessBoardSquares[x][y].remove(0);
-        //chessBoardSquares[x][y] = b;
- worker = new SwingWorker() {
+ worker = new SwingWorker<Void, Void>() {
             
             
 
             
 
 			@Override
-			protected Object doInBackground() throws Exception {
+			protected Void doInBackground() throws Exception {
 				// TODO Auto-generated method stub
 				f.add(gui);
                 f.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
